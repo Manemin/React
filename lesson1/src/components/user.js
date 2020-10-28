@@ -1,15 +1,17 @@
-import React, {Component} from 'react';
-
+import React, {Component} from 'react'
+import './user.css'
 class User extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
         const {usr} = this.props;
         return (
-            <div>
-                {usr.id}: {usr.name} - <b>{usr.status.toString()}</b>
-            </div>
+            <ul>
+            <li>
+                id: <span>{usr.id}</span>, name: <span>{usr.name}</span>, status: <span>{usr.status.toString()}</span>
+            </li>
+            </ul>
         );
     }
 }

@@ -7,7 +7,7 @@ class UserList extends Component {
 
         return (
             <div>
-                <h3>User list</h3>
+                <h3>User list:</h3>
                 {
                     users.map(user => <User usr={user} key={user.id}/>)
                 }
