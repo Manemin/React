@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {users} from "../data/users";
+import React, { Component } from 'react';
+import { users } from "../data/users";
 import User from "./user";
 
 class UserList extends Component {
@@ -8,9 +8,12 @@ class UserList extends Component {
         return (
             <div>
                 <h3>User list:</h3>
-                {
-                    users.map(user => <User usr={user} key={user.id}/>)
-                }
+                <ul>
+                    {
+                        users.map(user => <User usr={user} key={user.id} />)
+                    }
+                </ul>
+
             </div>
 
         );

@@ -2,11 +2,8 @@ span {
     color: rgb(11, 14, 165);
 }
 
-li {
-    width: 270px;
-}
-
 ul {
+    display: inline-block;
     list-style-type: none;
 }
 
