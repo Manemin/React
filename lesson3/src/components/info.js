@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import { UsersService } from '../services/usersService'
 import { PostService } from '../services/postService'
 import { CommentService } from '../services/commentService';
+import User from './user';
+import Post from './post';
 
 
-export default class User extends Component {
+export default class Info extends Component {
 
     state = {
         users: [],
@@ -13,7 +15,6 @@ export default class User extends Component {
         comments: [],
         user: {},
         id: Number,
-        idPost: Number
     }
 
     userApi = new UsersService();
@@ -40,7 +41,7 @@ export default class User extends Component {
 
     render() {
 
-        let { name, username, email } = this.state.user[0] || "";
+        // let { name, username, email } = this.state.user[0] || "";
 
         return (
             <div>
@@ -50,32 +51,12 @@ export default class User extends Component {
                     <input type="submit" value="get user" />
                 </form>
                 <div className="d-flex">
-                    <div className="p-2 flex-fill">
-                        <div className="card card-user" onClick={this.getPost}>
-                            <div className="card-body">
-                                <h4 className="card-title">{name}</h4>
-                                <h6 className="card-subtitle mb-2 text-muted">{username}</h6>
-                                <p className="card-text">
-                                    {email}
-                                </p>
-                            </div>
-                        </div>
+                    <div onClick={this.getPost}>
+                        <User usr={this.state.user} />
                     </div>
                     <div className="p-2 flex-fill">
                         {
-                            this.state.posts.map(post => {
-                                return (
-                                    <div className="card user-post" key={post.id} onClick={() => this.getComment(post.id)}>
-                                        <div className="card-body">
-                                            <h4 className="card-title">User id: {post.userId}</h4>
-                                            <h6 className="card-subtitle mb-2 text-muted">Title: {post.title}</h6>
-                                            <p className="card-text">
-                                                {post.body}
-                                            </p>
-                                        </div>
-                                    </div>
-                                )
-                            })
+                            this.state.posts.map(post => <Post pst={post} key={post.id} />)
                         }
                     </div>
                     <div className="p-2 flex-fill">
