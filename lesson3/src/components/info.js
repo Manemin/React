@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { UsersService } from '../services/usersService'
 import { PostService } from '../services/postService'
 import { CommentService } from '../services/commentService';
-import User from './user';
+import UserById from './userById';
 import Post from './post';
 
 
@@ -52,7 +52,7 @@ export default class Info extends Component {
                 </form>
                 <div className="d-flex">
                     <div onClick={this.getPost}>
-                        <User usr={this.state.user} />
+                        <UserById usr={this.state.user} />
                     </div>
                     <div className="p-2 flex-fill">
                         {
