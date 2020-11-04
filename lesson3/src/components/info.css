@@ -1,0 +1,9 @@
+.card-user:hover {
+    background-color: rgba(193, 193, 240, 0.486);
+    cursor: pointer;
+}
+
+.user-post:hover {
+    background-color: rgba(190, 243, 197, 0.452);
+    cursor: pointer;
+}
