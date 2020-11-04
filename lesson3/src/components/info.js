@@ -45,7 +45,7 @@ export default class User extends Component {
         return (
             <div>
                 <form onSubmit={this.getUser}>
-                    <label>enter User id </label>
+                    <label>enter User id</label>
                     <input type="number" min="1" max="10" onChange={this.getId} />
                     <input type="submit" value="get user" />
                 </form>

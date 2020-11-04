@@ -7,3 +7,6 @@
     background-color: rgba(190, 243, 197, 0.452);
     cursor: pointer;
 }
+label {
+    margin: 0 10px;
+}
