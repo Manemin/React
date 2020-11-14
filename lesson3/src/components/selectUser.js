@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import UserById from "./userById";
-import {UsersService} from "../services/usersService";
+import { UsersService } from "../services/usersService";
 import UserByName from "./userByName";
 
 class SelectUser extends Component {
@@ -11,33 +11,39 @@ class SelectUser extends Component {
         user: '',
         users: ''
     }
+
     getUser = async (e) => {
-        if (e.target.value && (+e.target.value <= 10 && +e.target.value > 0) ) {
-            this.setState({user: await this.userApi.getUserById(e.target.value)})
+        const id = +e.target.value;
+        if (id && (id <= 10 && id > 0)) {
+            this.setState({ user: await this.userApi.getUserById(id) })
         } else {
-            this.setState({user: ''})
+            this.setState({ user: '' })
         }
     }
+
     getUserByName = async (e) => {
-        let list = await this.userApi.getUsers();
-        let filtered = list.filter(usr => usr.name.toLowerCase().includes(e.target.value));
-        if (e.target.value) {
-            this.setState({users: filtered})
+        const name = e.target.value;
+        const list = await this.userApi.getUsers();
+        const filtered = list.filter(usr => usr.name.toLowerCase().includes(name));
+
+        if (name) {
+            this.setState({ users: filtered })
         } else {
-            this.setState({users: ''})
+            this.setState({ users: '' })
         }
     }
 
     render() {
+
         return (
             <div className="d-flex justify-content-around container">
                 <form>
-                    <input placeholder="enter id" className="form-control" type="number" onChange={this.getUser}/>
-                    <UserById usr={this.state.user}/>
+                    <input placeholder="enter id" className="form-control" type="number" onChange={this.getUser} />
+                    <UserById usr={this.state.user} />
                 </form>
                 <form>
-                    <input className="form-control" placeholder="enter name" type="text" onChange={this.getUserByName}/>
-                    <UserByName usr={this.state.users}/>
+                    <input className="form-control" placeholder="enter name" type="text" onChange={this.getUserByName} />
+                    <UserByName usr={this.state.users} />
                 </form>
             </div>
         );
