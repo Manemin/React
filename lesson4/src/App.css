@@ -1,0 +1,11 @@
+li {
+  list-style-type: none;
+}
+
+.active {
+  background-color: rgba(173, 173, 173, 0.3);
+}
+
+.select:hover {
+  background-color: rgba(13,160,255,0.23);
+}
